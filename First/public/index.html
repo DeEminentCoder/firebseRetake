@@ -12,28 +12,31 @@
     <script type="module">
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
-      import { GoogleAuthProvider,getAuth,signInWithPopup } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
+      import {
+        GoogleAuthProvider,
+        getAuth,
+        signInWithPopup,
+      } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
 
       // Your web app's Firebase configuration
       const firebaseConfig = {
-        apiKey: "AIzaSyAdXkWeZwfl3R5CbPi9gggTTCfepBh-BuI",
-        authDomain: "bankapp-46330.firebaseapp.com",
-        projectId: "bankapp-46330",
-        storageBucket: "bankapp-46330.appspot.com",
-        messagingSenderId: "760071905008",
-        a,
-        ppId: "1:760071905008:web:9c58b3ea57e86735d96c35",
+        apiKey: "AIzaSyCOx0NqOn660xrGfoc3xbpUxV5jRu1IPc8",
+        authDomain: "first-f4b51.firebaseapp.com",
+        projectId: "first-f4b51",
+        storageBucket: "first-f4b51.appspot.com",
+        messagingSenderId: "121620154887",
+        appId: "1:121620154887:web:907f6fc0ef8db352d9b8a2",
       };
 
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
       const provider = new GoogleAuthProvider();
       const auth = getAuth();
+
       document.getElementById("signin").addEventListener("click", () => {
-        signInWithPopup(auth, provider)
-        .then((Response)=> {
-          console.log(Response)
-        })
+        signInWithPopup(auth, provider).then((response) => {
+          console.log(response);
+        });
       });
     </script>
   </body>
