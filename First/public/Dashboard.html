@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome to dashboard</h1>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
+
+
+
+        const firebaseConfig = {
+          apiKey: "AIzaSyCOx0NqOn660xrGfoc3xbpUxV5jRu1IPc8",
+          authDomain: "first-f4b51.firebaseapp.com",
+          projectId: "first-f4b51",
+          storageBucket: "first-f4b51.appspot.com",
+          messagingSenderId: "121620154887",
+          appId: "1:121620154887:web:907f6fc0ef8db352d9b8a2"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+
+        onAuthStateChanged(auth),(user)=> {
+            console.log(user);
+            if (user) {
+                disp.innerHTML = `<h1>Welcome, ${user.displayName}</h1>`
+            }else {
+                console.log("user is not signed in")
+                window.location.href = "index.html"
+            }
+        }
+      </script>
+</body>
+</html>
