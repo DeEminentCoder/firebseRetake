@@ -7,10 +7,12 @@
 </head>
 <body>
     <h1>Welcome to dashboard</h1>
+    <div id="disp"></div>
+    <button id="signOutBtn">Sign Out</button>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
-        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
+        import { getAuth, onAuthStateChanged,signOut } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
 
 
 
@@ -27,7 +29,7 @@
         const app = initializeApp(firebaseConfig);
         const auth = getAuth();
 
-        onAuthStateChanged(auth),(user)=> {
+        onAuthStateChanged(auth,(user)=> {
             console.log(user);
             if (user) {
                 disp.innerHTML = `<h1>Welcome, ${user.displayName}</h1>`
@@ -35,7 +37,16 @@
                 console.log("user is not signed in")
                 window.location.href = "index.html"
             }
-        }
+        });
+        signOutBtn.addEventListener("click",()=> {
+            signOut(auth)
+            .then(()=>{
+                console.log("Signed Out!");
+            })
+            .catch((err)=>{
+                console.log(error);
+            })
+        })
       </script>
 </body>
 </html>
